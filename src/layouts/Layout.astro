@@ -1,0 +1,39 @@
+---
+import '../styles/index.css'
+const { title, frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title || frontmatter.title}</title>
+	</head>
+	<body>
+		<header>
+			<h1>Pranjal's digital garden</h1>
+		</header>
+		<button id="alert-btn">Alert</button>
+		<div id="layout-content">
+			<slot />
+		</div>
+		<div>
+			<a href="/">Home</a>
+		</div>
+		<footer>
+			Copyright 2023 @ Pranjal	
+		</footer>		
+	</body>
+</html>
+
+<script>
+import { a } from "../modules/module"
+const btn = document.querySelector("#alert-btn")
+btn.addEventListener("click", () => {
+	a("Hack")
+})
+</script>
